@@ -64,23 +64,25 @@ output "api_gateway_id" {
 }
 
 # DNS / Certs
-output "web_cert_validation" {
-  description = "CNAME records to add in GoDaddy for web cert"
-  value       = module.dns.web_cert_validation
-}
+# output "web_cert_validation" {
+#   description = "CNAME records to add in GoDaddy for web cert"
+#   value       = module.dns.web_cert_validation
+# }
+
+
 
 # App Runner
-output "apprunner_service_url" {
-  description = "App Runner service URL"
-  value       = module.apprunner.service_url
-}
+# output "apprunner_service_url" {
+#   description = "App Runner service URL"
+#   value       = module.apprunner.service_url
+# }
 
-output "ecr_repository_url" {
-  description = "ECR repository URL"
-  value       = module.apprunner.ecr_repository_url
-}
+# output "ecr_repository_url" {
+#   description = "ECR repository URL"
+#   value       = module.apprunner.ecr_repository_url
+# }
 
-output "apprunner_domain_validation" {
-  description = "CNAME records for App Runner custom domain (add in GoDaddy)"
-  value       = module.apprunner.custom_domain_validation_records
-}
+# output "apprunner_domain_validation" {
+#   description = "CNAME records for App Runner custom domain (add in GoDaddy)"
+#   value       = module.apprunner.custom_domain_validation_records
+# }

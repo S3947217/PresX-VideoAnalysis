@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "audio" {
-  bucket = "${var.project_name}-${var.environment}-audio-uploads"
+  bucket = "${var.project_name}-${var.environment}-audio-uploads-dev-rmit"
 
   tags = {
     Project     = var.project_name

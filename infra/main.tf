@@ -9,8 +9,8 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "presx-tfstate-ap-southeast-2"
-    key            = "presx/terraform.tfstate"
+    bucket         = "presx-dev-tfstate"
+    key            = "presx-dev/terraform.tfstate"
     region         = "ap-southeast-2"
     dynamodb_table = "presx-tfstate-ap-southeast-2-lock"
     encrypt        = true
@@ -88,27 +88,27 @@ module "apigateway" {
   cors_origins         = var.cors_origins
 }
 
-module "dns" {
-  source       = "./modules/dns"
-  project_name = var.project_name
-  environment  = var.environment
-  domain_name  = var.domain_name
-}
+# module "dns" {
+#   source       = "./modules/dns"
+#   project_name = var.project_name
+#   environment  = var.environment
+#   domain_name  = var.domain_name
+# }
 
-module "apprunner" {
-  source       = "./modules/apprunner"
-  project_name = var.project_name
-  environment  = var.environment
-  domain_name  = var.domain_name
+# module "apprunner" {
+#   source       = "./modules/apprunner"
+#   project_name = var.project_name
+#   environment  = var.environment
+#   domain_name  = var.domain_name
 
-  cognito_user_pool_id = module.cognito.user_pool_id
-  cognito_client_id    = module.cognito.user_pool_client_id
-  api_gateway_url      = module.apigateway.api_endpoint
-  secret_arn           = module.secrets.secret_arn
-  stripe_publishable_key  = var.stripe_publishable_key
-  stripe_monthly_price_id = var.stripe_monthly_price_id
-  stripe_annual_price_id  = var.stripe_annual_price_id
-  adalo_api_key             = var.adalo_api_key
-  adalo_app_id              = var.adalo_app_id
-  adalo_users_collection_id = var.adalo_users_collection_id
-}
+#   cognito_user_pool_id = module.cognito.user_pool_id
+#   cognito_client_id    = module.cognito.user_pool_client_id
+#   api_gateway_url      = module.apigateway.api_endpoint
+#   secret_arn           = module.secrets.secret_arn
+#   stripe_publishable_key  = var.stripe_publishable_key
+#   stripe_monthly_price_id = var.stripe_monthly_price_id
+#   stripe_annual_price_id  = var.stripe_annual_price_id
+#   adalo_api_key             = var.adalo_api_key
+#   adalo_app_id              = var.adalo_app_id
+#   adalo_users_collection_id = var.adalo_users_collection_id
+# }

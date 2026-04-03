@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "assets" {
-  bucket = "${var.project_name}-${var.environment}-public-assets"
+  bucket = "${var.project_name}-${var.environment}-public-assets-dev-rmit"
 
   tags = {
     Project     = var.project_name

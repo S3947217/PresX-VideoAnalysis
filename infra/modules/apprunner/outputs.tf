@@ -13,7 +13,7 @@ output "ecr_repository_url" {
   value       = aws_ecr_repository.web.repository_url
 }
 
-output "custom_domain_validation_records" {
-  description = "CNAME records to add in GoDaddy for App Runner custom domain"
-  value       = aws_apprunner_custom_domain_association.web.certificate_validation_records
-}
+# output "custom_domain_validation_records" {
+#   description = "CNAME records to add in GoDaddy for App Runner custom domain"
+#   value       = aws_apprunner_custom_domain_association.web.certificate_validation_records
+# }
